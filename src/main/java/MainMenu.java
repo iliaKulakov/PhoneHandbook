@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class MainMenu extends AbstractMenu {
 
     public MainMenu() {
@@ -13,6 +11,7 @@ public class MainMenu extends AbstractMenu {
         this.items.add("Sort");
     }
 
+    //    TODO: Почему не реализовал?
     @Override
     public void interactWithMenu() {
 
