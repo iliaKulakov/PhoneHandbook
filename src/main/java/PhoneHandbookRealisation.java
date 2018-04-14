@@ -10,10 +10,10 @@ public class PhoneHandbookRealisation implements IphoneHandbookRepository {
     //    TODO: http://www.oracle.com/technetwork/java/codeconvtoc-136057.html
 //    TODO: http://translatedby.com/you/java-code-conventions/into-ru/?page=2
    public void addUser(String name,String surname,int year) {
-         ArrayList<Person> personList = new ArrayList<Person>();
-         personList.add(new Person(name, surname, year));
-         for (Person str : personList) {
-           System.out.println(str + " тестовый вывод ссылки на обьект");
+            ArrayList<Person> personList = new ArrayList<Person>();
+            personList.add(new Person(name, surname, year));
+            for (Person str : personList) {
+            System.out.println(str + " тестовый вывод ссылки на обьект");
 
     }
     }
