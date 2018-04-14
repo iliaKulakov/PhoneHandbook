@@ -25,6 +25,7 @@ public class MainMenu extends AbstractMenu {
                 int command = sc1.nextInt();//
                 switch (command) {
                     case 1:
+                        //как-то тут наверно есть смысл с отступами поработать...
                         System.out.println("Вы ввели число 1 - Cоздание пользователя. Задайте имя с клавиатуры ");
                         Person personVar = new Person();
                         Scanner scName = new Scanner(System.in);
@@ -40,6 +41,11 @@ public class MainMenu extends AbstractMenu {
                         System.out.println("Геттер уже из класса Person: " + personVar.getName());
                         System.out.println("Геттер уже из класса Person: " + personVar.getSurname());
                         System.out.println("Геттер уже из класса Person: " + personVar.getYear());
+                        String name = personVar.getName();
+                        String surname = personVar.getSurname();
+                        int year = personVar.getYear();
+                        PhoneHandbookRealisation RealisationVar = new PhoneHandbookRealisation();
+                            RealisationVar.addUser(name,surname,year);
                         exit=true;
                         break;
                     case 2:
