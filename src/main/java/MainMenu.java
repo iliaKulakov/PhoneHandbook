@@ -25,7 +25,21 @@ public class MainMenu extends AbstractMenu {
                 int command = sc1.nextInt();//
                 switch (command) {
                     case 1:
-                        System.out.println("Вы ввели число 1");
+                        System.out.println("Вы ввели число 1 - Cоздание пользователя. Задайте имя с клавиатуры ");
+                        Person personVar = new Person();
+                        Scanner scName = new Scanner(System.in);
+                        String nameFromKeyBoard = scName.nextLine();
+                        personVar.setName(nameFromKeyBoard);
+                        System.out.println("Задайте фамилию с клавиатуры ");
+                        String SurnameFromKeyBoard = scName.nextLine();
+                        personVar.setSurname(SurnameFromKeyBoard);
+                        System.out.println("Задайте год рождения с клавиатуры ");
+                        int YearFromKeyBoard = scName.nextInt();
+                        personVar.setYear(YearFromKeyBoard);
+                        //Ниже три строки заглушки для самопроверки, что в класс попали нужный мне
+                        System.out.println("Геттер уже из класса Person: " + personVar.getName());
+                        System.out.println("Геттер уже из класса Person: " + personVar.getSurname());
+                        System.out.println("Геттер уже из класса Person: " + personVar.getYear());
                         exit=true;
                         break;
                     case 2:
