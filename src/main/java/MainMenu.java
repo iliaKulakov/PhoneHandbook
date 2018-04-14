@@ -13,16 +13,15 @@ public class MainMenu extends AbstractMenu {
     }
 
     //    TODO: Почему не реализовал?
+    //Накидал простое меню. Илья
 
     @Override
     public void interactWithMenu() {
-
         Scanner sc1 = new Scanner(System.in);
-            int create=1; boolean exit=false;
-
-            do{ printMenu(); //вызываю печать меню от AbstractMenu
-                System.out.println(" - Ввод пункта меню с клавиатуры: ");
-
+        boolean exit=false;
+            do{
+                printMenu(); //вызываю печать меню от AbstractMenu
+                System.out.println("Ввод пункта меню с клавиатуры: ");
                 int command = sc1.nextInt();//
                 switch (command) {
                     case 1:
