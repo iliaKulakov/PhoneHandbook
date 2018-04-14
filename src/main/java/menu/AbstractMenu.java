@@ -1,5 +1,6 @@
-import java.awt.*;
-import java.util.*;
+package menu;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractMenu implements MenuInterface {
@@ -22,7 +23,7 @@ public abstract class AbstractMenu implements MenuInterface {
             StringBuilder printableMenuItem = new StringBuilder()
                     .append(i)
                     .append(" - ")
-                    .append(items.get( i - 1 ));
+                    .append(items.get(i - 1));
             System.out.println(printableMenuItem.toString());
         }
     }
