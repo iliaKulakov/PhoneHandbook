@@ -48,10 +48,14 @@ public class MainMenu extends AbstractMenu {
                     int year = personVar.getYear();
                     PhoneHandbookRealisation RealisationVar = new PhoneHandbookRealisation();
                     RealisationVar.addUser(name, surname, year);
+                    RealisationVar.toSearchForItems();
                     exit = true;
                     break;
                 case 2:
-                    System.out.println("Вы ввели число 2");
+                    System.out.println("Вы ввели число 2 Поиск абонентов");
+                        PhoneHandbookRealisation  PhoneHandbookRealVar = new PhoneHandbookRealisation();
+                        PhoneHandbookRealVar.toSearchForItems();
+                  //  RealisationVar.toSearchForItems();
                     exit = true;
                     break;
                 case 3:
