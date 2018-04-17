@@ -68,7 +68,7 @@ public class PhoneHandbookRealisation implements IphoneHandbookRepository {
             Person object = personList.get(i);// не придумал с утра ничего лучше как просто брать обьект из коллекции
             int hash= object.hashCode();
             System.out.println(hash); //смотрю, что хэши действительно разные
-            ////
+
 
 
         }
