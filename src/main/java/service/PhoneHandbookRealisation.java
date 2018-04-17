@@ -54,6 +54,30 @@ public class PhoneHandbookRealisation implements IphoneHandbookRepository {
     }//toSearchForItems
 
 
+    //Застопорился вот тут, на вход для поиска получаю коллекцию
+    // думаю что в качестве аргумента еще подавать на вход корректнее для поиска
+    public void toSearchItem2(ArrayList<Person> personList){
+
+        this.personList=personList;
+
+        System.out.println(personList.size());
+       // System.out.println(personList.contains());
+        String personListString = "";
+        for (int i = 0; i < personList.size(); i++) {
+            personListString = personListString + personList.get(i) + " ";
+            Person object = personList.get(i);// не придумал с утра ничего лучше как просто брать обьект из коллекции
+            int hash= object.hashCode();
+            System.out.println(hash); //смотрю, что хэши действительно разные
+            ////
+
+
+        }
+        System.out.println(personListString); //пример печати содержимого обьектов коллекции
+
+    }
+
+
+
 }
 
 
