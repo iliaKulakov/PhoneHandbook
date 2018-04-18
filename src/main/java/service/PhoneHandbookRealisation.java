@@ -1,11 +1,11 @@
 package service;
 import model.Person;
-
 import java.util.ArrayList;
-
 //Реализация методов работы с коллекцией таких как добавление пользователя и т.д.
 public class PhoneHandbookRealisation implements IphoneHandbookRepository {
     ArrayList<Person> personList = new ArrayList<Person>();
+
+
     @Override
     //Не совсем понимаю, как получать входные параметры, то есть аргументы для метода добавления информации
     //потому что у меня должен быть инициализирован конструктор

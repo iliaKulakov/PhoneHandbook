@@ -5,6 +5,7 @@ import model.Person;
 import java.util.ArrayList;
 import java.util.Scanner;
 import service.PhoneHandbookRealisation;
+import service.SingleArrayListCollection;
 
 public class MainMenu extends AbstractMenu {
 
@@ -70,7 +71,18 @@ public class MainMenu extends AbstractMenu {
                     exit = true;
                     break;
                 case 3:
+                    //Сделал вывод через синглтон, тут будет сортировка, сделал в этом пункте, 1 и 2
+                    //пока не переделывал
                     System.out.println("Вы ввели число 3");
+                    Person personvar44 = new Person("test","авпвыапыв",4132);
+
+                    //Тут просто смотрю, что могу добавить элемент в коллекцию и потом смотрю размер
+                    //что она добавила
+                    SingleArrayListCollection singleton =  SingleArrayListCollection.getInstance();
+                    singleton.personList2.add(personvar44);
+                    System.out.println(singleton.personList2.size());
+
+
                     exit = true;
                     break;
                 default:
