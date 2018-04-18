@@ -1,6 +1,8 @@
 package menu;
 
 import model.Person;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import service.PhoneHandbookRealisation;
 
@@ -48,10 +50,23 @@ public class MainMenu extends AbstractMenu {
                     int year = personVar.getYear();
                     PhoneHandbookRealisation RealisationVar = new PhoneHandbookRealisation();
                     RealisationVar.addUser(name, surname, year);
+                    RealisationVar.toSearchForItems();
                     exit = true;
                     break;
                 case 2:
-                    System.out.println("Вы ввели число 2");
+                    System.out.println("Вы ввели число 2 Поиск абонентов");
+                        PhoneHandbookRealisation  PhoneHandbookRealVar = new PhoneHandbookRealisation();
+                      //  PhoneHandbookRealVar.toSearchForItems();
+                  //  RealisationVar.toSearchForItems();
+                    ArrayList<Person> personList1 = new ArrayList<Person>();
+                    Person personvar11 = new Person("Vihhta","fgsdgsfd",1234);
+                    Person personvar22 = new Person("dsdsds","чываыаввы",4536);
+                    Person personvar33 = new Person("test","авпвыапыв",4132);
+                    personList1.add(personvar22);
+                    personList1.add(personvar11);
+                    personList1.add(personvar33);
+                    PhoneHandbookRealVar.toSearchItem2(personList1);
+
                     exit = true;
                     break;
                 case 3:
