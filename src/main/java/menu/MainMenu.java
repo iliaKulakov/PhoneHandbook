@@ -1,11 +1,11 @@
 package menu;
 
 import model.Person;
+import service.PhoneHandbookRealisation;
+import service.SingleArrayListCollection;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import service.PhoneHandbookRealisation;
-import service.SingleArrayListCollection;
 
 public class MainMenu extends AbstractMenu {
 
@@ -56,13 +56,13 @@ public class MainMenu extends AbstractMenu {
                     break;
                 case 2:
                     System.out.println("Вы ввели число 2 Поиск абонентов");
-                        PhoneHandbookRealisation  PhoneHandbookRealVar = new PhoneHandbookRealisation();
-                      //  PhoneHandbookRealVar.toSearchForItems();
-                  //  RealisationVar.toSearchForItems();
+                    PhoneHandbookRealisation PhoneHandbookRealVar = new PhoneHandbookRealisation();
+                    //  PhoneHandbookRealVar.toSearchForItems();
+                    //  RealisationVar.toSearchForItems();
                     ArrayList<Person> personList1 = new ArrayList<Person>();
-                    Person personvar11 = new Person("Vihhta","fgsdgsfd",1234);
-                    Person personvar22 = new Person("dsdsds","чываыаввы",4536);
-                    Person personvar33 = new Person("test","авпвыапыв",4132);
+                    Person personvar11 = new Person("Vihhta", "fgsdgsfd", 1234);
+                    Person personvar22 = new Person("dsdsds", "чываыаввы", 4536);
+                    Person personvar33 = new Person("test", "авпвыапыв", 4132);
                     personList1.add(personvar22);
                     personList1.add(personvar11);
                     personList1.add(personvar33);
@@ -74,11 +74,11 @@ public class MainMenu extends AbstractMenu {
                     //Сделал вывод через синглтон, тут будет сортировка, сделал в этом пункте, 1 и 2
                     //пока не переделывал
                     System.out.println("Вы ввели число 3");
-                    Person personvar44 = new Person("test","авпвыапыв",4132);
+                    Person personvar44 = new Person("test", "авпвыапыв", 4132);
 
                     //Тут просто смотрю, что могу добавить элемент в коллекцию и потом смотрю размер
                     //что она добавила
-                    SingleArrayListCollection singleton =  SingleArrayListCollection.getInstance();
+                    SingleArrayListCollection singleton = SingleArrayListCollection.getInstance();
                     singleton.personList2.add(personvar44);
                     System.out.println(singleton.personList2.size());
 
