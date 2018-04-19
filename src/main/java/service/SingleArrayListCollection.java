@@ -8,6 +8,7 @@ public final class SingleArrayListCollection {
         private SingleArrayListCollection() {
         }
 
+
         public static  SingleArrayListCollection getInstance() {
             if (_instance == null)
                 _instance = new SingleArrayListCollection();
