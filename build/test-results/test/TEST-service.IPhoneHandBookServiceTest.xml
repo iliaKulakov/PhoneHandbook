@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="service.IPhoneHandBookServiceTest" tests="3" skipped="0" failures="1" errors="0" timestamp="2018-04-19T19:52:28" hostname="rmuhamedgalievs-iMac.local" time="0.026">
+<testsuite name="service.IPhoneHandBookServiceTest" tests="3" skipped="0" failures="1" errors="0" timestamp="2018-04-20T18:06:45" hostname="rmuhamedgalievs-iMac.local" time="0.02">
   <properties/>
-  <testcase name="searchByName()" classname="service.IPhoneHandBookServiceTest" time="0.012"/>
+  <testcase name="searchByName()" classname="service.IPhoneHandBookServiceTest" time="0.009"/>
   <testcase name="searchByYear()" classname="service.IPhoneHandBookServiceTest" time="0.001"/>
-  <testcase name="save()" classname="service.IPhoneHandBookServiceTest" time="0.009">
+  <testcase name="save()" classname="service.IPhoneHandBookServiceTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: Error on save person ==&gt; expected: &lt;0&gt; but was: &lt;1&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Error on save person ==&gt; expected: &lt;0&gt; but was: &lt;1&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:56)
 	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)

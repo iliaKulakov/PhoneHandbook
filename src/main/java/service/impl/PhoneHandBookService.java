@@ -16,16 +16,16 @@ public class PhoneHandBookService implements IPhoneHandBookService {
 
     @Override
     public Person save(String firstName, String lastName, int year) {
-        return null;
+        return repository.addUser(firstName, lastName, year);
     }
 
     @Override
     public Set<Person> searchByName(String firstName, String lastName) {
-        return null;
+        return repository.searchByName(firstName, lastName);
     }
 
     @Override
     public Set<Person> searchByYear(int year) {
-        return null;
+        return repository.searchByYear(year);
     }
 }

@@ -1,7 +1,9 @@
 package menu;
 
 import model.Person;
+import repository.IPhoneHandbookRepository;
 import repository.impl.PhoneHandbookRepository;
+import service.impl.PhoneHandBookService;
 import storage.PersonStorage;
 
 import java.util.ArrayList;
@@ -9,8 +11,16 @@ import java.util.Scanner;
 
 public class MainMenu extends AbstractMenu {
 
+    private IPhoneHandbookRepository repository;
+    private PhoneHandBookService service;
+
+
     public MainMenu() {
         super();
+
+        this.repository = new PhoneHandbookRepository();
+        this.service = new PhoneHandBookService(repository);
+
         initMenuItems();
     }
 
@@ -52,35 +62,38 @@ public class MainMenu extends AbstractMenu {
 //                    PhoneHandbookRepository phoneHandbookRepository = new PhoneHandbookRepository();
 //                    phoneHandbookRepository.addUser(name, surname, year);
 //                    phoneHandbookRepository.toSearchForItems();
+
+                    service.save()
+
                     exit = true;
                     break;
                 case 2:
                     System.out.println("Вы ввели число 2 Поиск абонентов");
-                    PhoneHandbookRepository phoneHandbookRepositoryRealVar = new PhoneHandbookRepository();
-                    //  phoneHandbookRepositoryRealVar.toSearchForItems();
-                    //  phoneHandbookRepository.toSearchForItems();
-                    ArrayList<Person> personList1 = new ArrayList<Person>();
-                    Person personvar11 = new Person("Vihhta", "fgsdgsfd", 1234);
-                    Person personvar22 = new Person("dsdsds", "чываыаввы", 4536);
-                    Person personvar33 = new Person("test", "авпвыапыв", 4132);
-                    personList1.add(personvar22);
-                    personList1.add(personvar11);
-                    personList1.add(personvar33);
-                    phoneHandbookRepositoryRealVar.toSearchItem2(personList1);
+//                    PhoneHandbookRepository phoneHandbookRepositoryRealVar = new PhoneHandbookRepository();
+//                    //  phoneHandbookRepositoryRealVar.toSearchForItems();
+//                    //  phoneHandbookRepository.toSearchForItems();
+//                    ArrayList<Person> personList1 = new ArrayList<Person>();
+//                    Person personvar11 = new Person("Vihhta", "fgsdgsfd", 1234);
+//                    Person personvar22 = new Person("dsdsds", "чываыаввы", 4536);
+//                    Person personvar33 = new Person("test", "авпвыапыв", 4132);
+//                    personList1.add(personvar22);
+//                    personList1.add(personvar11);
+//                    personList1.add(personvar33);
+//                    phoneHandbookRepositoryRealVar.toSearchItem2(personList1);
 
                     exit = true;
                     break;
                 case 3:
-                    //Сделал вывод через синглтон, тут будет сортировка, сделал в этом пункте, 1 и 2
-                    //пока не переделывал
-                    System.out.println("Вы ввели число 3");
-                    Person personvar44 = new Person("test", "авпвыапыв", 4132);
-
-                    //Тут просто смотрю, что могу добавить элемент в коллекцию и потом смотрю размер
-                    //что она добавила
-
-                    PersonStorage.INSTANCE.getPersons().add(personvar44);
-                    System.out.println(PersonStorage.INSTANCE.getPersons().size());
+//                    //Сделал вывод через синглтон, тут будет сортировка, сделал в этом пункте, 1 и 2
+//                    //пока не переделывал
+//                    System.out.println("Вы ввели число 3");
+//                    Person personvar44 = new Person("test", "авпвыапыв", 4132);
+//
+//                    //Тут просто смотрю, что могу добавить элемент в коллекцию и потом смотрю размер
+//                    //что она добавила
+//
+//                    PersonStorage.INSTANCE.getPersons().add(personvar44);
+//                    System.out.println(PersonStorage.INSTANCE.getPersons().size());
 
 
                     exit = true;
