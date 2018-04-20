@@ -1,15 +1,12 @@
 package model;
 
+import java.util.Objects;
+
 public class Person {
     private int year;
     private String name;
     private String surname;
 
-    public Person() {
-
-    }
-
-    // конструктор
     public Person(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
@@ -20,33 +17,30 @@ public class Person {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return year == person.year &&
+                Objects.equals(name, person.name) &&
+                Objects.equals(surname, person.surname);
     }
 
     @Override
-    public String toString() {
-        return "Person{" +
-                "year=" + year +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+    public int hashCode() {
+
+        return Objects.hash(year, name, surname);
     }
 }
 

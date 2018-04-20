@@ -17,12 +17,42 @@ plugins {
 // Define the main class for the application
 mainClassName = 'App'
 
-dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:23.0'
+ext.junit4Version        = '4.12'
+ext.junitVintageVersion  = '5.2.0-M1'
+ext.junitPlatformVersion = '1.2.0-M1'
+ext.junitJupiterVersion  = '5.2.0-M1'
 
-    // Use JUnit test framework
-    testCompile 'junit:junit:4.12'
+test {
+    useJUnitPlatform {
+        // includeEngines 'junit-jupiter', 'junit-vintage'
+        // excludeEngines 'custom-engine'
+
+        // includeTags 'fast'
+        excludeTags 'slow'
+    }
+
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+
+    reports {
+        html.enabled = true
+    }
+}
+
+dependencies {
+    // JUnit Jupiter API and TestEngine implementation
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+
+    testCompile("junit:junit:${junit4Version}")
+    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}") {
+        because 'allows JUnit 3 and JUnit 4 tests to run'
+    }
+
+    testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}") {
+        because 'allows tests to run from IDEs that bundle older version of launcher'
+    }
 }
 
 // In this section you declare where to find the dependencies of your project
@@ -30,4 +60,8 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.7"
 }
