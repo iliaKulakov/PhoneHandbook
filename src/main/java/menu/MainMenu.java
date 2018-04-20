@@ -1,8 +1,8 @@
 package menu;
 
 import model.Person;
-import service.PhoneHandbookRealisation;
-import service.SingleArrayListCollection;
+import repository.impl.PhoneHandbookRepository;
+import storage.PersonStorage;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -32,33 +32,33 @@ public class MainMenu extends AbstractMenu {
                 case 1:
                     //как-то тут наверно есть смысл с отступами поработать...
                     System.out.println("Вы ввели число 1 - Cоздание пользователя. Задайте имя с клавиатуры ");
-                    Person personVar = new Person();
-                    Scanner scName = new Scanner(System.in);
-                    String nameFromKeyBoard = scName.nextLine();
-                    personVar.setName(nameFromKeyBoard);
-                    System.out.println("Задайте фамилию с клавиатуры ");
-                    String SurnameFromKeyBoard = scName.nextLine();
-                    personVar.setSurname(SurnameFromKeyBoard);
-                    System.out.println("Задайте год рождения с клавиатуры ");
-                    int YearFromKeyBoard = scName.nextInt();
-                    personVar.setYear(YearFromKeyBoard);
-                    //Ниже три строки заглушки для самопроверки, что в класс попали нужный мне
-                    System.out.println("Геттер уже из класса model.Person: " + personVar.getName());
-                    System.out.println("Геттер уже из класса model.Person: " + personVar.getSurname());
-                    System.out.println("Геттер уже из класса model.Person: " + personVar.getYear());
-                    String name = personVar.getName();
-                    String surname = personVar.getSurname();
-                    int year = personVar.getYear();
-                    PhoneHandbookRealisation RealisationVar = new PhoneHandbookRealisation();
-                    RealisationVar.addUser(name, surname, year);
-                    RealisationVar.toSearchForItems();
+//                    Person personVar = new Person();
+//                    Scanner scName = new Scanner(System.in);
+//                    String nameFromKeyBoard = scName.nextLine();
+//                    personVar.setName(nameFromKeyBoard);
+//                    System.out.println("Задайте фамилию с клавиатуры ");
+//                    String SurnameFromKeyBoard = scName.nextLine();
+//                    personVar.setSurname(SurnameFromKeyBoard);
+//                    System.out.println("Задайте год рождения с клавиатуры ");
+//                    int YearFromKeyBoard = scName.nextInt();
+//                    personVar.setYear(YearFromKeyBoard);
+//                    //Ниже три строки заглушки для самопроверки, что в класс попали нужный мне
+//                    System.out.println("Геттер уже из класса model.Person: " + personVar.getName());
+//                    System.out.println("Геттер уже из класса model.Person: " + personVar.getSurname());
+//                    System.out.println("Геттер уже из класса model.Person: " + personVar.getYear());
+//                    String name = personVar.getName();
+//                    String surname = personVar.getSurname();
+//                    int year = personVar.getYear();
+//                    PhoneHandbookRepository phoneHandbookRepository = new PhoneHandbookRepository();
+//                    phoneHandbookRepository.addUser(name, surname, year);
+//                    phoneHandbookRepository.toSearchForItems();
                     exit = true;
                     break;
                 case 2:
                     System.out.println("Вы ввели число 2 Поиск абонентов");
-                    PhoneHandbookRealisation PhoneHandbookRealVar = new PhoneHandbookRealisation();
-                    //  PhoneHandbookRealVar.toSearchForItems();
-                    //  RealisationVar.toSearchForItems();
+                    PhoneHandbookRepository phoneHandbookRepositoryRealVar = new PhoneHandbookRepository();
+                    //  phoneHandbookRepositoryRealVar.toSearchForItems();
+                    //  phoneHandbookRepository.toSearchForItems();
                     ArrayList<Person> personList1 = new ArrayList<Person>();
                     Person personvar11 = new Person("Vihhta", "fgsdgsfd", 1234);
                     Person personvar22 = new Person("dsdsds", "чываыаввы", 4536);
@@ -66,7 +66,7 @@ public class MainMenu extends AbstractMenu {
                     personList1.add(personvar22);
                     personList1.add(personvar11);
                     personList1.add(personvar33);
-                    PhoneHandbookRealVar.toSearchItem2(personList1);
+                    phoneHandbookRepositoryRealVar.toSearchItem2(personList1);
 
                     exit = true;
                     break;
@@ -78,9 +78,9 @@ public class MainMenu extends AbstractMenu {
 
                     //Тут просто смотрю, что могу добавить элемент в коллекцию и потом смотрю размер
                     //что она добавила
-                    SingleArrayListCollection singleton = SingleArrayListCollection.getInstance();
-                    singleton.personList2.add(personvar44);
-                    System.out.println(singleton.personList2.size());
+
+                    PersonStorage.INSTANCE.getPersons().add(personvar44);
+                    System.out.println(PersonStorage.INSTANCE.getPersons().size());
 
 
                     exit = true;
@@ -89,8 +89,8 @@ public class MainMenu extends AbstractMenu {
                     System.out.println("Ошибка! Повторите выбор меню: ");
                     exit = false;
                     break;
-            }//switch
+            }
         } while (exit != true);
-        //do while
-    }//interactWithMenu(
-}//public class menu.MainMenu extends menu.AbstractMenu
+
+    }
+}

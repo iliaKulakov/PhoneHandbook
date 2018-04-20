@@ -1,11 +1,12 @@
-package service;
+package repository.impl;
 
 import model.Person;
+import repository.IPhoneHandbookRepository;
 
 import java.util.ArrayList;
 
 //Реализация методов работы с коллекцией таких как добавление пользователя и т.д.
-public class PhoneHandbookRealisation implements IphoneHandbookRepository {
+public class PhoneHandbookRepository implements IPhoneHandbookRepository {
     ArrayList<Person> personList = new ArrayList<Person>();
 
 
