@@ -1,6 +1,7 @@
 package repository.impl;
 
 import model.Person;
+import model.PersonComparator;
 import repository.IPhoneHandbookRepository;
 import storage.PersonStorage;
 
@@ -67,12 +68,38 @@ public class PhoneHandbookRepository implements IPhoneHandbookRepository {
 
     }
 
-    @Override
-    public Set<Person> sortPhoneHandbook(String firstName, String lastName, int year) {
-// Collections.sort(…)
 
-    return null;
-    }}
+    // public Set<Person> sortPhoneHandbook(String firstName, String lastName, int year) {
+    public Set<Person> sortPhoneHandbook() {
+        // Collections.sort(PersonStorage.INSTANCE.getPersons(), new PersonComparator());
+
+        //PersonStorage comparator = new PersonStorage();
+
+        //for (Person person : PersonStorage.INSTANCE.getPersons()) {
+         //  Collections.sort(PersonStorage.INSTANCE.getPersons(), comparator);
+
+
+        TreeSet<Person> treeSet = new TreeSet<Person>(new PersonComparator());
+        treeSet.addAll(PersonStorage.INSTANCE.getPersons());
+        for (Person p : treeSet) {
+            System.out.println(p.getName() + " " + p.getSurname() + " " + p.getYear());
+        }
+
+
+        return null;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

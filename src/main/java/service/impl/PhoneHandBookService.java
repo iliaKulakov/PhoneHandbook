@@ -31,8 +31,8 @@ public class PhoneHandBookService implements IPhoneHandBookService {
 
 
     @Override
-    public Set<Person> sortPhoneHandbook(String firstName, String lastName,int year ) {
-        return repository.sortPhoneHandbook(firstName,lastName,year);}
+    public Set<Person> sortPhoneHandbook() {
+        return repository.sortPhoneHandbook();}
 
 
 

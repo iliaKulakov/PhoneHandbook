@@ -1,8 +1,11 @@
 package model;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person>{
+// class Person implements List<T> {
     private int year;
     private String name;
     private String surname;
@@ -41,10 +44,14 @@ public class Person {
     public int hashCode() {
 
         return Objects.hash(year, name, surname);
-
-
-
     }
+
+    public int compareTo(Person p) {
+       return p.getSurname().compareTo(p.getSurname());
+        //return null;
+    }
+
+
 }
 
 

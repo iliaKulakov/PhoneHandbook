@@ -74,8 +74,7 @@ public class MainMenu extends AbstractMenu {
                      exit = false;
                      break;
                 case 4:
-
-                    //service.sortPhoneHandbook();
+                    service.sortPhoneHandbook();
                     exit = false;
                     break;
                 default:
