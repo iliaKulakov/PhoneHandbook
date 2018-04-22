@@ -2,11 +2,9 @@ package storage;
 
 import model.Person;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
+//singleton
 public enum PersonStorage {
     INSTANCE;
 
@@ -15,6 +13,8 @@ public enum PersonStorage {
     public Set<Person> getPersons() {
         return this.persons;
     }
+
+
 
 }
 
