@@ -26,7 +26,8 @@ public class MainMenu extends AbstractMenu {
 
     private void initMenuItems() {
         this.items.add("Create");
-        this.items.add("Search");
+        this.items.add("Search by name and lastName");
+        this.items.add("Search by year");
         this.items.add("Sort");
     }
 
@@ -53,23 +54,29 @@ public class MainMenu extends AbstractMenu {
                     exit = false;
                     break;
                 case 2:
-                   // System.out.println("Вы ввели число 2. Поиск абонентов в справочнике ");
-                   // System.out.println("Введите год рождения абонента для поиска ");
-                   // Scanner scName1 = new Scanner(System.in);
-                   // int year = scName1.nextInt();
-                   // service.searchByYear(year);
+
                     System.out.println("Вы ввели число 2. Поиск абонентов в справочнике ");
                     System.out.println("Введите имя с клавиатуры для поиска в справочнике");
                     Scanner scName2 = new Scanner(System.in);
                     String firstName = scName2.nextLine();
                     System.out.println("Задайте фамилию с клавиатуры ");
-                    String lastName = scName2.nextLine();
+                    Scanner scName3 = new Scanner(System.in);
+                    String lastName = scName3.nextLine();
                     service.searchByName(firstName,lastName);
                     exit = false;
                     break;
                 case 3:
+                     System.out.println("Вы ввели число 2. Поиск абонентов в справочнике ");
+                     System.out.println("Введите год рождения абонента для поиска ");
+                     Scanner scName1 = new Scanner(System.in);
+                     int year = scName1.nextInt();
+                     service.searchByYear(year);
+                     exit = false;
+                     break;
+                case 4:
 
-                    exit = true;
+                    //service.sortPhoneHandbook();
+                    exit = false;
                     break;
                 default:
                     System.out.println("Ошибка! Повторите выбор меню: ");
