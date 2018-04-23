@@ -26,7 +26,8 @@ public class MainMenu extends AbstractMenu {
 
     private void initMenuItems() {
         this.items.add("Create");
-        this.items.add("Search");
+        this.items.add("Search by name and lastName");
+        this.items.add("Search by year");
         this.items.add("Sort");
     }
 
@@ -40,63 +41,41 @@ public class MainMenu extends AbstractMenu {
             int command = sc1.nextInt();//
             switch (command) {
                 case 1:
-                    //как-то тут наверно есть смысл с отступами поработать...
                     System.out.println("Вы ввели число 1 - Cоздание пользователя. Задайте имя с клавиатуры ");
-//                    Person personVar = new Person();
-//                    Scanner scName = new Scanner(System.in);
-//                    String nameFromKeyBoard = scName.nextLine();
-//                    personVar.setName(nameFromKeyBoard);
-//                    System.out.println("Задайте фамилию с клавиатуры ");
-//                    String SurnameFromKeyBoard = scName.nextLine();
-//                    personVar.setSurname(SurnameFromKeyBoard);
-//                    System.out.println("Задайте год рождения с клавиатуры ");
-//                    int YearFromKeyBoard = scName.nextInt();
-//                    personVar.setYear(YearFromKeyBoard);
-//                    //Ниже три строки заглушки для самопроверки, что в класс попали нужный мне
-//                    System.out.println("Геттер уже из класса model.Person: " + personVar.getName());
-//                    System.out.println("Геттер уже из класса model.Person: " + personVar.getSurname());
-//                    System.out.println("Геттер уже из класса model.Person: " + personVar.getYear());
-//                    String name = personVar.getName();
-//                    String surname = personVar.getSurname();
-//                    int year = personVar.getYear();
-//                    PhoneHandbookRepository phoneHandbookRepository = new PhoneHandbookRepository();
-//                    phoneHandbookRepository.addUser(name, surname, year);
-//                    phoneHandbookRepository.toSearchForItems();
+                    Scanner scName = new Scanner(System.in);
+                    String nameFromKeyBoard = scName.nextLine();
+                    System.out.println("Задайте фамилию с клавиатуры ");
+                    String lastNameFromKeyBoard = scName.nextLine();
+                    System.out.println("Задайте год рождения с клавиатуры ");
+                    int yearFromKeyBoard = scName.nextInt();
+                    service.save(nameFromKeyBoard,lastNameFromKeyBoard,yearFromKeyBoard);
+                    //repository.
 
-                    service.save()
-
-                    exit = true;
+                    exit = false;
                     break;
                 case 2:
-                    System.out.println("Вы ввели число 2 Поиск абонентов");
-//                    PhoneHandbookRepository phoneHandbookRepositoryRealVar = new PhoneHandbookRepository();
-//                    //  phoneHandbookRepositoryRealVar.toSearchForItems();
-//                    //  phoneHandbookRepository.toSearchForItems();
-//                    ArrayList<Person> personList1 = new ArrayList<Person>();
-//                    Person personvar11 = new Person("Vihhta", "fgsdgsfd", 1234);
-//                    Person personvar22 = new Person("dsdsds", "чываыаввы", 4536);
-//                    Person personvar33 = new Person("test", "авпвыапыв", 4132);
-//                    personList1.add(personvar22);
-//                    personList1.add(personvar11);
-//                    personList1.add(personvar33);
-//                    phoneHandbookRepositoryRealVar.toSearchItem2(personList1);
 
-                    exit = true;
+                    System.out.println("Вы ввели число 2. Поиск абонентов в справочнике ");
+                    System.out.println("Введите имя с клавиатуры для поиска в справочнике");
+                    Scanner scName2 = new Scanner(System.in);
+                    String firstName = scName2.nextLine();
+                    System.out.println("Задайте фамилию с клавиатуры ");
+                    Scanner scName3 = new Scanner(System.in);
+                    String lastName = scName3.nextLine();
+                    service.searchByName(firstName,lastName);
+                    exit = false;
                     break;
                 case 3:
-//                    //Сделал вывод через синглтон, тут будет сортировка, сделал в этом пункте, 1 и 2
-//                    //пока не переделывал
-//                    System.out.println("Вы ввели число 3");
-//                    Person personvar44 = new Person("test", "авпвыапыв", 4132);
-//
-//                    //Тут просто смотрю, что могу добавить элемент в коллекцию и потом смотрю размер
-//                    //что она добавила
-//
-//                    PersonStorage.INSTANCE.getPersons().add(personvar44);
-//                    System.out.println(PersonStorage.INSTANCE.getPersons().size());
-
-
-                    exit = true;
+                     System.out.println("Вы ввели число 2. Поиск абонентов в справочнике ");
+                     System.out.println("Введите год рождения абонента для поиска ");
+                     Scanner scName1 = new Scanner(System.in);
+                     int year = scName1.nextInt();
+                     service.searchByYear(year);
+                     exit = false;
+                     break;
+                case 4:
+                    service.sortPhoneHandbook();
+                    exit = false;
                     break;
                 default:
                     System.out.println("Ошибка! Повторите выбор меню: ");

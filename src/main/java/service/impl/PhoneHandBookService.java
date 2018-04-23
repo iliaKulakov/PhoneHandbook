@@ -28,4 +28,12 @@ public class PhoneHandBookService implements IPhoneHandBookService {
     public Set<Person> searchByYear(int year) {
         return repository.searchByYear(year);
     }
+
+
+    @Override
+    public Set<Person> sortPhoneHandbook() {
+        return repository.sortPhoneHandbook();}
+
+
+
 }

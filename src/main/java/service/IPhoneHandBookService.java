@@ -13,4 +13,7 @@ public interface IPhoneHandBookService {
 
     Set<Person> searchByYear(int year);
 
+    //добавил в интерфейс
+    Set<Person>  sortPhoneHandbook();
+
 }
